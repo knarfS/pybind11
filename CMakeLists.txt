@@ -164,6 +164,7 @@ target_include_directories(
   pybind11 ${pybind11_system} INTERFACE $<BUILD_INTERFACE:${PYBIND11_INCLUDE_DIR}>
                                         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 # Only add Python for build - must be added during the import for config since it has to be re-discovered.
+# TODO: isn't working, when PYTHON_INCLUDE_DIRS contains a semikolon seperated list? -> ${PYTHON_INCLUDE_DIRS}
 target_include_directories(pybind11 SYSTEM INTERFACE $<BUILD_INTERFACE:${PYTHON_INCLUDE_DIRS}>)
 
 if(CMAKE_VERSION VERSION_LESS 3.13)
