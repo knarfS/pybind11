@@ -38,8 +38,9 @@ if (PkgConfig_FOUND)
     endif()
     set(PYTHON_MODULE_PREFIX "")
     set(PYTHON_MODULE_EXTENSION "")
-    set(PYTHON_VERSION_MAJOR "") # TODO
-    set(PYTHON_VERSION_MINOR "") # TODO
+    string(REPLACE "." ";" PYTHON3_VERSION_LIST ${PYTHON3_VERSION})
+    list(GET PYTHON3_VERSION_LIST 0 PYTHON_VERSION_MAJOR)
+    list(GET PYTHON3_VERSION_LIST 1 PYTHON_VERSION_MINOR)
     message(STATUS "Python3 found via pkg-config!")
   endif()
 endif()
